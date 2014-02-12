@@ -13,9 +13,7 @@ class CollectionUrl:
 
     def __init__(self, url):
         self.url = url
-
-        tree = ET.parse(urlopen(url))
-
+        tree = ET.parse(urlopen(url))   #Parse the first page
         total_results = int(tree.find(self.OS_NP + 'totalResults').text)
 
         print 'total results', total_results
@@ -31,6 +29,9 @@ class CollectionUrl:
 
 
     def __next_page(self):
+        """
+           Helper function that retrieves the next page of results
+        """
         self.current_page = self.current_page + 1
         tree = ET.parse(urlopen(self.url + '&start=' + str(self.current_page)))
         self.iterator = tree.iterfind(self.GLOBAL_NP + 'entry')
@@ -40,9 +41,11 @@ class CollectionUrl:
         return self
 
     def next(self):
+        """
+        Next url in this collection
+        """
 
         cur_item = None
-
         while cur_item == None:
             try:
                 cur_item = self.iterator.next()

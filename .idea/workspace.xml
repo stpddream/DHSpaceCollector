@@ -35,7 +35,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spaceio/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="31" selection-start="509" selection-end="509" vertical-scroll-proportion="0.7098121" vertical-offset="0" max-vertical-offset="1088">
+            <state line="47" column="23" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.3966597" vertical-offset="609" max-vertical-offset="1139">
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -109,6 +109,16 @@
               <option name="myItemId" value="DHSpaceCollector" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DHSpaceCollector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DHSpaceCollector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -129,16 +139,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="spaceio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DHSpaceCollector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DHSpaceCollector" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,7 +402,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceio/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="509" selection-end="509" vertical-scroll-proportion="0.7098121" vertical-offset="0" max-vertical-offset="1088">
+        <state line="47" column="23" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.3966597" vertical-offset="609" max-vertical-offset="1139">
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
