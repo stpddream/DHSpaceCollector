@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/DHSpaceCollecter.iml" filepath="$PROJECT_DIR$/.idea/DHSpaceCollecter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DHSpaceCollector.iml" filepath="$PROJECT_DIR$/.idea/DHSpaceCollector.iml" />
     </modules>
   </component>
 </project>
