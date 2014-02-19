@@ -1,3 +1,5 @@
+__author__ = 'stpanda'
+
 import xml.etree.ElementTree as ET
 from urllib2 import urlopen
 
@@ -44,7 +46,6 @@ class CollectionUrl:
         """
         Next url in this collection
         """
-
         cur_item = None
         while cur_item == None:
             try:
@@ -59,3 +60,24 @@ class CollectionUrl:
         print self.counter
 
         return element.attrib['href']
+
+
+class ContentChecker:
+
+    @staticmethod
+    def is_valid(url):
+
+        HAVERFORD_TOKEN = 'Haverford users only'
+
+        content = urlopen(url).read()
+
+        if HAVERFORD_TOKEN in content:
+            return False
+
+
+
+
+
+
+
+
