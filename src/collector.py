@@ -11,6 +11,7 @@ for num in it:
 
 """
 
+"""
 from spaceio import ContentChecker
 
 print ContentChecker.is_valid('http://triceratops.brynmawr.edu/dspace/handle/10066/11132')
@@ -18,5 +19,11 @@ print ContentChecker.is_valid('http://triceratops.brynmawr.edu/dspace/handle/100
 from fileprocessor import process_url
 
 print process_url('http://triceratops.brynmawr.edu/dspace/bitstream/handle/10066/11132/ZAW20120511.pdf?sequence=1')
+"""
 
+from contentextractor import ContentExtractor
+
+ce = ContentExtractor()
+
+print ce.extract_content('http://triceratops.brynmawr.edu/dspace/handle/10066/7446')
 

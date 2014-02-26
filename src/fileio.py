@@ -10,7 +10,7 @@ from pdfminer.layout import LAParams
 from urllib2 import urlopen
 from StringIO import StringIO
 
-def process_url(url):
+def process_pdf(url):
     process(StringIO(urlopen(url).read()))
 
 
