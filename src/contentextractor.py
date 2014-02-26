@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 from urllib2 import urlopen
 from fileio import process_pdf
 
-class StateEntry:
+class Statement:
     def __init__(self, date, title, author, publisher, id, content):
         self.date = date
         self.title = title
@@ -39,8 +39,7 @@ class ContentExtractor:
          date = section.find(self.NP_E + "span[@class='date']").text
          pdf_url = root.find(".//" + self.NP_G + "meta[@name='citation_pdf_url']").attrib['content']
 
-
          content = process_pdf(pdf_url)
 
 
-         return StateEntry(date, title, author, publisher, "", content)
+         return Statement(date, title, author, publisher, "", content)

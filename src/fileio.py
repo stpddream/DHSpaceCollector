@@ -11,11 +11,10 @@ from urllib2 import urlopen
 from StringIO import StringIO
 
 def process_pdf(url):
-    process(StringIO(urlopen(url).read()))
+    extract_pdf(StringIO(urlopen(url).read()))
 
 
-
-def process(file):
+def extract_pdf(file):
     parser = PDFParser(file)
     document = PDFDocument(parser)
     document.initialize("")
@@ -34,10 +33,12 @@ def process(file):
     for page in PDFPage.get_pages(file, pagenos, maxpages=0, password="", caching=True,
                                   check_extractable=True):
         interpreter.process_page(page)
-        print 'haah'
 
-    a = retstr.getvalue()
+    content = retstr.getvalue()
+    print isinstance(content, str)
+    print "Value", content
+    return content
 
-    print "Value", a
-    return a
+def cvs_out(statement, file):
+    return statement
 
