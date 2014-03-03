@@ -1,29 +1,24 @@
-from spaceio import CollectionUrl
-
-"""
+from spaceio import CollectionPages
+from spaceio import ContentChecker
+from statements import StatementExtractor
+from fileio import produce_csv
 
 url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=super&scope=10066/4022"
+ce = StatementExtractor()
+outfile = open("statements.csv", "wb")
 
-it = CollectionUrl(url)
+statement_pages = CollectionPages(url)
+for page in statement_pages:
+    if ContentChecker.is_valid(page):
+        statement = ce.extract(page)
+        print statement
+        produce_csv(outfile, statement)
+    else:
+        print "Invalid."
 
-for num in it:
-    print num
+outfile.close()
 
-"""
 
-"""
-from spaceio import ContentChecker
 
-print ContentChecker.is_valid('http://triceratops.brynmawr.edu/dspace/handle/10066/11132')
 
-from fileprocessor import process_url
-
-print process_url('http://triceratops.brynmawr.edu/dspace/bitstream/handle/10066/11132/ZAW20120511.pdf?sequence=1')
-"""
-
-from contentextractor import ContentExtractor
-
-ce = ContentExtractor()
-
-print ce.extract_content('http://triceratops.brynmawr.edu/dspace/handle/10066/7446')
 

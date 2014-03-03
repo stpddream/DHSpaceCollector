@@ -9,12 +9,19 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from urllib2 import urlopen
 from StringIO import StringIO
+import csv
 
 def process_pdf(url):
-    extract_pdf(StringIO(urlopen(url).read()))
+    """
+    return the string content of a pdf file from the url
+    """
+    return extract_pdf(StringIO(urlopen(url).read()))
 
 
 def extract_pdf(file):
+    """
+    extract the string content of a pdf
+    """
     parser = PDFParser(file)
     document = PDFDocument(parser)
     document.initialize("")
@@ -35,10 +42,11 @@ def extract_pdf(file):
         interpreter.process_page(page)
 
     content = retstr.getvalue()
-    print isinstance(content, str)
-    print "Value", content
     return content
 
-def cvs_out(statement, file):
-    return statement
-
+def produce_csv(outfile, statement):
+    """
+    produce a csv from the statement
+    """
+    sta_writer = csv.writer(outfile, quoting=csv.QUOTE_ALL)
+    sta_writer.writerow([statement.title, statement.date, statement.author, statement.publisher, statement.content])

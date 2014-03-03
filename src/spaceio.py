@@ -3,15 +3,11 @@ __author__ = 'stpanda'
 import xml.etree.ElementTree as ET
 from urllib2 import urlopen
 
-class CollectionUrl:
+class CollectionPages:
 
     # name spaces
     GLOBAL_NP = '{http://www.w3.org/2005/Atom}'
     OS_NP = '{http://a9.com/-/spec/opensearch/1.1/}'
-
-    #Base url
-    COL_URL = 'http://triceratops.brynmawr.edu:8080/dspace/open-search/?scope=10066/4022'
-
 
     def __init__(self, url):
         self.url = url
@@ -56,8 +52,6 @@ class CollectionUrl:
                 else: raise
 
         element = cur_item.find(self.GLOBAL_NP + 'link')
-        self.counter = self.counter + 1
-        print self.counter
 
         return element.attrib['href']
 
@@ -66,13 +60,18 @@ class ContentChecker:
 
     @staticmethod
     def is_valid(url):
+        """
+        Check if the statement is valid to use
+        """
 
         HAVERFORD_TOKEN = 'Haverford users only'
-
+        INVALID_TOKENS = [HAVERFORD_TOKEN, "Site Intel", "SITE Institute"]
         content = urlopen(url).read()
 
-        if HAVERFORD_TOKEN in content:
-            return False
+        for token in INVALID_TOKENS:
+            if token in content:
+                return False
+        return True
 
 
 

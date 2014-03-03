@@ -1,1 +1,1 @@
-__author__ = 'stpanda'
+_author__ = 'stpanda'
