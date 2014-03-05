@@ -32,7 +32,7 @@ def extract_pdf(file):
     retstr = StringIO()
     laparams = LAParams()
     codec = 'utf-8'
-    device = TextConverter(rsrcmgr, retstr, codec = codec, laparams = laparams)
+    device = TextConverter(rsrcmgr, retstr, codec = codec, showpageno=False, laparams = laparams)
 
     interpreter = PDFPageInterpreter(rsrcmgr, device)
     pagenos = set()

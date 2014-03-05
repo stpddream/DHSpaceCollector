@@ -3,7 +3,11 @@ from spaceio import ContentChecker
 from statements import StatementExtractor
 from fileio import produce_csv
 
-url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=super&scope=10066/4022"
+#url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=super&scope=10066/4022"
+
+url = "http://triceratops.brynmawr.edu:8080/dspace/open-serch/?qey=ok&scope=10066/4022"
+
+
 ce = StatementExtractor()
 outfile = open("statements.csv", "wb")
 

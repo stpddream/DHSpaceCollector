@@ -2,6 +2,7 @@ __author__ = 'stpanda'
 
 import xml.etree.ElementTree as ET
 from urllib2 import urlopen
+from urllib2 import HTTPError
 
 class CollectionPages:
 
@@ -11,6 +12,7 @@ class CollectionPages:
 
     def __init__(self, url):
         self.url = url
+ 
         tree = ET.parse(urlopen(url))   #Parse the first page
         total_results = int(tree.find(self.OS_NP + 'totalResults').text)
 
@@ -24,6 +26,10 @@ class CollectionPages:
         print 'total pages', self.total_pages
 
         self.counter = 0
+
+
+
+
 
 
     def __next_page(self):
