@@ -1,20 +1,22 @@
 import xml.etree.ElementTree as ET
 from urllib2 import urlopen
 from fileio import process_pdf
+from util import date_f
 
 class Statement:
     def __init__(self, date, title, author, publisher, id, content):
-        self.date = date
-        self.title = title
-        self.author = author
-        self.publisher = publisher
+        self.date = date.encode('utf-8')
+        self.title = title.encode('utf-8')
+        self.author = author.encode('utf-8')
+        self.publisher = publisher.encode('utf-8')
         self.id = id
-        self.content = content
+        self.content = content # content is already encoded by pdfminer
         
     def __str__(self):
         str = "[Job: {date: " + self.date + ", title:" + self.title + \
               ", author: " + self.author + ", publisher:" + self.publisher + "}\n"
         return str
+        #return str.encode('utf-8')
 
 
 
@@ -39,8 +41,9 @@ class StatementExtractor:
         author = section.find(self.NP_E + "span[@class='author']").text
         title = section.find(self.NP_E + "span[@class='title']").text
         publisher = section.find(self.NP_E + "span[@class='publisher']").text
-        date = section.find(self.NP_E + "span[@class='date']").text
+        #date = section.find(self.NP_E + "span[@class='date']").text
+        date = root.find(".//" + self.NP_G + "meta[@name='citation_date']").attrib['content']
         pdf_url = root.find(".//" + self.NP_G + "meta[@name='citation_pdf_url']").attrib['content']
         content = process_pdf(pdf_url)
 
-        return Statement(date, title, author, publisher, "", content)
+        return Statement(date_f(date), title, author, publisher, "", content)

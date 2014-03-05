@@ -12,7 +12,7 @@ class CollectionPages:
 
     def __init__(self, url):
         self.url = url
- 
+
         tree = ET.parse(urlopen(url))   #Parse the first page
         total_results = int(tree.find(self.OS_NP + 'totalResults').text)
 
