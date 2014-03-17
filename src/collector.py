@@ -5,13 +5,10 @@ from fileio import produce_csv
 from urllib2 import HTTPError
 from sys import exit
 
-#url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=super&scope=10066/4022"
-
-#url = "http://triceratops.brynmawr.edu:8080/dspace/open-serch/?qey=ok&scope=10066/4022"
-url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=ok&scope=10066/4022"
+url = "http://triceratops.brynmawr.edu:8080/dspace/open-search/?query=%22*%22&scope=10066/4022"
 
 ce = StatementExtractor()
-outfile = open("statements.csv", "wb")
+outfile = open("statements.csv", "wb")    #out put file
 statement_pages = None
 try:
     statement_pages = CollectionPages(url)

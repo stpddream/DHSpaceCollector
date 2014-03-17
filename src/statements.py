@@ -40,7 +40,12 @@ class StatementExtractor:
         # Extract meta info from the citation section of the page
         author = section.find(self.NP_E + "span[@class='author']").text
         title = section.find(self.NP_E + "span[@class='title']").text
-        publisher = section.find(self.NP_E + "span[@class='publisher']").text
+
+        publisher = ""
+        publisher_node = section.find(self.NP_E + "span[@class='publisher']")
+        if publisher_node != None:
+            publisher = publisher_node.text
+
         #date = section.find(self.NP_E + "span[@class='date']").text
         date = root.find(".//" + self.NP_G + "meta[@name='citation_date']").attrib['content']
         pdf_url = root.find(".//" + self.NP_G + "meta[@name='citation_pdf_url']").attrib['content']
